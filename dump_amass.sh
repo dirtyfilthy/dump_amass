@@ -35,22 +35,25 @@ parse_error(){
 }
 
 usage(){
-	echo "dump_amass.sh: dump amass info from sqlite file"
-	echo "- Author: alhazred"
-	echo "- Source: https://github.com/dirtyfilthy/dump_amass"
-	echo ""
-	echo "Usage: $0 [-a] [-d SUFFIX] [-i] | [-e] [-4] | [-6] <amass.sqlite>"
-	echo 
-	echo "  -d SUFFIX    only show domains ending with SUFFIX"
-	echo "  -a           only show matches with an A record"
-	echo "  -i           internal, only show domains that resolve to a private IP range (implies -a)"
-	echo "  -e           external, only show domains that are internet routable (implies -a)"
-	echo "  -4           only show IPv4 addresses (implies -a)"
-	echo "  -6           only show IPv6 addresses (implies -a)"
-	echo "  -h           show this help"
-	echo "<amass.sqlite> amass sqlite file"
-	echo ""
-	echo "Note: requires sqlite3 >= 3.45.0"
+	cat <<-EOF
+	dump_amass.sh: dump amass info from sqlite file"
+	- Author: alhazred"
+	- Source: https://github.com/dirtyfilthy/dump_amass"
+	
+	Usage: $0 [-a] [-d SUFFIX] [-i] | [-e] [-4] | [-6] <amass.sqlite>
+ 
+	  -d SUFFIX    only show domains ending with SUFFIX
+	  -a           only show matches with an A record
+	  -i           internal, only show domains that resolve to a private IP range (implies -a)
+	  -e           external, only show domains that are internet routable (implies -a)
+	  -4           only show IPv4 addresses (implies -a)
+	  -6           only show IPv6 addresses (implies -a)
+	  -h           show this help"
+	
+	<amass.sqlite> amass sqlite file
+	
+	Note: requires sqlite3 >= 3.45.0
+	EOF
 	exit 1
 }
 
